@@ -1,0 +1,7 @@
+common-service-eureka
+    http://localhost:8761/
+
+business-service-pay
+    http://localhost:8781/pay/wxPay
+business-service-order
+     http://localhost:8782/order/getOrderInfoById

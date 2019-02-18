@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: common-service-eureka
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #是否将eureka自身作为应用注册到eureka注册中心
+    register-with-eureka: false
+    #表示不去检索其他的服务，因为服务注册中心本身的职责就是维护服务实例，它也不需要去检索其他服务
+    fetch-registry: false
+    service-url:
+      default-zone: http://${eureka.instance.hostname}:${server.port}/eureka/
