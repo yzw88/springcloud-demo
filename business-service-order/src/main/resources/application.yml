@@ -3,8 +3,6 @@ spring:
     name: business-service-order
 server:
   port: 8782
-  servlet:
-    context-path: /order
 eureka:
   client:
     service-url:

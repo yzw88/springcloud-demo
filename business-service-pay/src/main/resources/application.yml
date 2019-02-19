@@ -3,8 +3,6 @@ spring:
     name: business-service-pay
 server:
   port: 8781
-  servlet:
-    context-path: /pay
 eureka:
   client:
     service-url:

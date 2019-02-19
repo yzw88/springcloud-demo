@@ -23,7 +23,7 @@ public class PayController {
     @GetMapping(value = "/wxPay")
     public Object wxPay() {
         Integer orderId = 2;
-        Map<String, Object> map = orderFeignClient.getOrderInfoById(orderId);
-        return map;
+        Object obj = orderFeignClient.getOrderInfoById(orderId);
+        return obj;
     }
 }
