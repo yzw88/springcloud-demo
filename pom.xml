@@ -36,6 +36,7 @@
         <module>common-service-eureka</module>
         <module>business-service-pay</module>
         <module>business-service-order</module>
+        <module>common-service-gateway</module>
     </modules>
 
     <dependencyManagement>

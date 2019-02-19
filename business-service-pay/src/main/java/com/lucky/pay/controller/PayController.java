@@ -26,4 +26,10 @@ public class PayController {
         Object obj = orderFeignClient.getOrderInfoById(orderId);
         return obj;
     }
+
+    @GetMapping(value = "/check")
+    public Object check() {
+
+        return "200";
+    }
 }

@@ -1,0 +1,26 @@
+server:
+  port: 8783
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8088/eureka/
+spring:
+  application:
+    name: common-service-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 是否与服务发现组件进行结合，通过serviceId(必须设置大写)转发到具体的服务实例
+          enabled: true
+      default-filters:
+        - PrefixPath=/
+        - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+      routes:
+        - id: pay_route
+          uri: http://localhost:8781
+          order: 0
+          predicates:
+            - Path=/pay/**
+          filters:
+            - StripPrefix=1
