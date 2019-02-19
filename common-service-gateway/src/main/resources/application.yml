@@ -24,3 +24,10 @@ spring:
             - Path=/pay/**
           filters:
             - StripPrefix=1
+        - id: pay_service_id
+          uri: lb://business-service-pay
+          order: 0
+          predicates:
+            - Path=/pay2/**
+          filters:
+            - StripPrefix=1
