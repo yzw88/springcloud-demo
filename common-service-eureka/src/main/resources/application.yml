@@ -2,7 +2,7 @@ spring:
   application:
     name: common-service-eureka
 server:
-  port: 8761
+  port: 8088
 eureka:
   instance:
     hostname: localhost
@@ -12,4 +12,5 @@ eureka:
     #表示不去检索其他的服务，因为服务注册中心本身的职责就是维护服务实例，它也不需要去检索其他服务
     fetch-registry: false
     service-url:
-      default-zone: http://localhost:8761/eureka/
+      # 是defaultZone而不能是 default-zone 否则识别不了会使用默认端口 8761
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
