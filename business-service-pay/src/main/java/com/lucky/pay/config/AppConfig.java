@@ -50,4 +50,6 @@ public class AppConfig extends WebMvcConfigurationSupport {
         converters.add(fastJsonHttpMessageConverter);
 
     }
+
+
 }

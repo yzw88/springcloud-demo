@@ -1,5 +1,5 @@
 common-service-eureka
-    http://localhost:8088/
+    http://localhost:8288/
 
 business-service-pay
     http://localhost:8781/wxPay
@@ -8,3 +8,4 @@ business-service-order
 
 common-service-gateway
       http://localhost:8783/pay/check
+      http://localhost:8783/BUSINESS-SERVICE-PAY/check

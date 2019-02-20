@@ -3,7 +3,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8088/eureka/
+      defaultZone: http://localhost:8288/eureka/
 spring:
   application:
     name: common-service-gateway
@@ -11,19 +11,33 @@ spring:
     gateway:
       discovery:
         locator:
-          # 是否与服务发现组件进行结合，通过serviceId(必须设置大写)转发到具体的服务实例
+          # 是否与服务发现组件进行结合，通过serviceId(默认设置大写)转发到具体的服务实例，也可http://网关地址/服务名称/**
           enabled: true
+          # 将请求路径上的服务名配置为小写
+          lower-case-service-id: true
       default-filters:
         - PrefixPath=/
         - AddResponseHeader=X-Response-Default-Foo, Default-Bar
       routes:
         - id: pay_route
+          # 服务的负载均衡地址
           uri: http://localhost:8781
           order: 0
           predicates:
+            # 转发之前将/pay去掉
             - Path=/pay/**
+            # 匹配2019年2月19号17:42:47之后的请求
+            - After=2019-02-19T17:42:47.789-07:00[America/Denver]
           filters:
             - StripPrefix=1
+            - name: RequestRateLimiter
+              args:
+                # 用于限流的键的解析器的 Bean 对象的名字。它使用 SpEL 表达式根据#{@beanName}从 Spring 容器中获取 Bean 对象。
+                key-resolver: '#{@hostAddrKeyResolver}'
+                # 令牌桶每秒填充平均速率
+                redis-rate-limiter.replenishRate: 1
+                # 令牌桶总容量:3
+                redis-rate-limiter.burstCapacity: 3
         - id: pay_service_id
           uri: lb://business-service-pay
           order: 0
@@ -31,3 +45,25 @@ spring:
             - Path=/pay2/**
           filters:
             - StripPrefix=1
+  # redis配置
+  redis:
+    # 使用数据库
+    database: 0
+    # 连接主机ip
+    host: 127.0.0.1
+    # 端口
+    port: 6379
+    # 密码
+    password: 123456
+    jedis:
+      pool:
+        # 连接池最大连接数(使用负值表示没有限制)
+        max-active: 150
+        # 连接池最大阻塞等待时间(使用负值表示没有限制)
+        max-wait: 20000ms
+        # 连接池最大空闲连接
+        max-idle: 20
+        # 连接池最少空闲连接
+        min-idle: 15
+    # 超时时间
+    timeout: 20000ms
