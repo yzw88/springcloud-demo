@@ -1,10 +1,11 @@
 package com.lucky.pay.feign;
 
+import com.lucky.pay.feign.fallback.OrderFeignClientHystric;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient("business-service-order")
+@FeignClient(value = "business-service-order", fallback = OrderFeignClientHystric.class)
 public interface OrderFeignClient {
 
     /**

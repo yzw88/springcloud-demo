@@ -6,7 +6,7 @@
     <artifactId>business-service-pay</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>business-service-pay</name>
-    <description>Demo project for Spring Boot</description>
+    <description>pay 支付服务</description>
     <packaging>jar</packaging>
 
     <parent>
@@ -46,6 +46,12 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!--hystrix-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
 
         <dependency>

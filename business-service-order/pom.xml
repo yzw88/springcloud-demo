@@ -6,7 +6,7 @@
     <artifactId>business-service-order</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>business-service-order</name>
-    <description>Demo project for Spring Boot</description>
+    <description>order 订单服务</description>
     <packaging>jar</packaging>
 
     <parent>
