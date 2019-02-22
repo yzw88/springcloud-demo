@@ -5,7 +5,11 @@ business-service-pay
     http://localhost:8781/wxPay
 business-service-order
      http://localhost:8782/getOrderInfoById
+     http://localhost:8782/getName
 
 common-service-gateway
       http://localhost:8783/pay/check
       http://localhost:8783/BUSINESS-SERVICE-PAY/check
+
+common-service-config
+      http://localhost:8784/config-client/dev

@@ -1,5 +1,6 @@
 package com.lucky.order.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,8 @@ import java.util.Map;
 @RestController
 public class OrderController {
 
+    @Value("${name:testName}")
+    public String name;
 
     @GetMapping(value = "/getOrderInfoById")
     public Object getOrderInfoById(Integer orderId) {
@@ -23,5 +26,11 @@ public class OrderController {
         map.put("orderName", "测试商品");
         map.put("phone", "10010");
         return map;
+    }
+
+    @GetMapping(value = "/getName")
+    public Object getName() {
+
+        return "The name is:" + name;
     }
 }

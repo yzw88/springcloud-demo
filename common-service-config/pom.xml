@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>business-service-order</artifactId>
+    <artifactId>common-service-config</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>business-service-order</name>
-    <description>order 订单服务</description>
+    <name>common-service-config</name>
+    <description>spring cloud config 服务端</description>
     <packaging>jar</packaging>
+
 
     <parent>
         <groupId>com.lucky</groupId>
@@ -34,29 +34,14 @@
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
 
     </dependencies>
 
 
     <build>
-        <finalName>business-service-order</finalName>
+        <finalName>common-service-config</finalName>
         <resources>
             <resource>
                 <directory>src/main/java</directory>
@@ -83,7 +68,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.lucky.order.BusinessServiceOrderApplication</mainClass>
+                    <mainClass>com.lucky.config.CommonServiceConfigApplication</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
                 <executions>

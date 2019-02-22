@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: common-service-config
+  cloud:
+    config:
+      server:
+        git:
+          # git远程仓库url
+          uri: https://github.com/yzw88/springcloud-demo/
+          # git仓库文件夹
+          search-paths: test-config
+          username:
+          password:
+      # 分支名称
+      label: master
+
+server:
+  port: 8784

@@ -38,6 +38,7 @@
         <module>business-service-pay</module>
         <module>business-service-order</module>
         <module>common-service-gateway</module>
+        <module>common-service-config</module>
     </modules>
 
     <dependencyManagement>
