@@ -6,8 +6,7 @@ business-service-pay
 business-service-order
      http://localhost:8782/getOrderInfoById
      http://localhost:8782/getName
-     http://localhost:8782/refresh
-     http://localhost:8782/actuator/refresh
+     http://localhost:8782/actuator/bus-refresh
 
 common-service-gateway
       http://localhost:8783/pay/check
@@ -15,3 +14,8 @@ common-service-gateway
 
 common-service-config
       http://localhost:8784/config-client/dev
+
+
+
+curl -v -X POST http://localhost:8782/actuator/refresh
+curl -v -X POST http://localhost:8782/actuator/bus-refresh
