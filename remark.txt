@@ -6,6 +6,8 @@ business-service-pay
 business-service-order
      http://localhost:8782/getOrderInfoById
      http://localhost:8782/getName
+     http://localhost:8782/refresh
+     http://localhost:8782/actuator/refresh
 
 common-service-gateway
       http://localhost:8783/pay/check
