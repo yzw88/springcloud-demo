@@ -18,4 +18,3 @@ common-service-config
 
 
 curl -v -X POST http://localhost:8782/actuator/refresh
-curl -v -X POST http://localhost:8782/actuator/bus-refresh
